@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TitanicService } from './services/titanic.service';
+import { Passenger } from './interfaces/passenger';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { TitanicService } from './services/titanic.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  passengers: [] = [];
+  passengers: Passenger[] = [];
 
   constructor(private titanicService: TitanicService) { }
 

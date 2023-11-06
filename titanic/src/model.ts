@@ -5,13 +5,19 @@ import dotenv from 'dotenv'
 dotenv.config()
 import { Passenger } from "./Passenger"
 const csvFilePath: string | undefined = process.env.DATA_URL
-const pathTrainCSV = path.join(__dirname, `../src/${csvFilePath}/train.csv`) ;
+const pathTrainCSV = path.join(__dirname, `../src/${csvFilePath}/train.csv`);
 
 
 export async function Passengers(): Promise<Passenger[]> {
     const jsonArray = await csv().fromFile(pathTrainCSV);
 
     return jsonArray;
+}
+
+export async function Passenger(id: string): Promise<Passenger> {
+    const jsonArray = await csv().fromFile(pathTrainCSV);
+
+    return jsonArray.find(p => p.PassengerId == id);
 }
 
 export async function PassengersSurvived(status: string): Promise<Passenger[]> {
