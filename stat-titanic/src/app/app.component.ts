@@ -9,12 +9,34 @@ import { Passenger } from './interfaces/passenger';
 })
 export class AppComponent implements OnInit {
   passengers: Passenger[] = [];
+  filter: any = {
+    sex: "",
+    age: "",
+    Pclass: "",
+    Survived: ""
+  }
 
   constructor(private titanicService: TitanicService) { }
 
 
   ngOnInit(): void {
-    this.titanicService.getPassengers().subscribe(u => console.log(u));
+    this.reloadSearch()
+  }
+
+  reloadSearch(): void {
+    this.titanicService.getPassengers(this.filter).subscribe(u => {
+      this.passengers = u;
+    });
+  }
+
+  resetFilters(): void {
+    this.filter = {
+      sex: "",
+      age: "",
+      Pclass: "",
+      Survived: ""
+    }
+    this.reloadSearch()
   }
 
 }
