@@ -1,0 +1,16 @@
+.card {
+    background-color: #ffc107;
+}
+
+.myalert {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.search {
+    position: sticky;
+    top: 0;
+}

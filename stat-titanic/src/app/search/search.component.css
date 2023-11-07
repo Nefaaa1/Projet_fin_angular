@@ -1,0 +1,29 @@
+.vertical-nav {
+    min-width: 16rem;
+    width: 16rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.page-content {
+    width: calc(100% - 18rem);
+    margin-left: 17rem;
+}
+
+.search {
+    position: sticky;
+    top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #fff;
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

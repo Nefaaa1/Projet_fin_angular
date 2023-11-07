@@ -8,35 +8,13 @@ import { Passenger } from './interfaces/passenger';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  passengers: Passenger[] = [];
-  filter: any = {
-    sex: "",
-    age: "",
-    Pclass: "",
-    Survived: ""
-  }
 
-  constructor(private titanicService: TitanicService) { }
+
+  constructor() { }
 
 
   ngOnInit(): void {
-    this.reloadSearch()
-  }
 
-  reloadSearch(): void {
-    this.titanicService.getPassengers(this.filter).subscribe(u => {
-      this.passengers = u;
-    });
-  }
-
-  resetFilters(): void {
-    this.filter = {
-      sex: "",
-      age: "",
-      Pclass: "",
-      Survived: ""
-    }
-    this.reloadSearch()
   }
 
 }

@@ -3,10 +3,17 @@ import csv from "csvtojson"
 import path from "path"
 import dotenv from 'dotenv'
 dotenv.config()
-import { Passenger } from "./Passenger"
+import { Passenger, User } from "./Passenger"
 const csvFilePath: string | undefined = process.env.DATA_URL
 const pathTrainCSV = path.join(__dirname, `../src/${csvFilePath}/train.csv`);
+const pathUsersCSV = path.join(__dirname, `../src/${csvFilePath}/users.csv`);
 
+
+export async function Users(): Promise<User[]> {
+    const jsonArray = await csv().fromFile(pathUsersCSV);
+
+    return jsonArray;
+}
 
 export async function Passengers(): Promise<Passenger[]> {
     const jsonArray = await csv().fromFile(pathTrainCSV);

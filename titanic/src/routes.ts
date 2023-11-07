@@ -1,6 +1,6 @@
 'use strict';
 import express, { Router, Request, Response } from "express";
-import { Passengers, PassengersSurvived, Passenger } from "./model";
+import { Passengers, PassengersSurvived, Passenger, Users } from "./model";
 import { log } from "console";
 import { readFile, writeFile } from 'node:fs/promises';
 import path from "path";
@@ -9,6 +9,12 @@ const csvFilePath: string | undefined = process.env.DATA_URL;
 const pathStatJSON = path.join(__dirname, `../src/${csvFilePath}/stat.json`);
 
 const router: Router = express.Router();
+
+router.get("/users", async function (req: Request, res: Response) {
+    const data = await Users();
+    log(data)
+    res.json(data);
+});
 
 router.get("/passengers", async function (req: Request, res: Response) {
     const data = await Passengers();

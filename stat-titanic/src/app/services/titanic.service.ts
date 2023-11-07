@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Passenger } from '../interfaces/passenger';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,10 @@ export class TitanicService {
         return passengers;
       })
     );
+  }
+
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.baseUrl + '/users');
   }
 
 }

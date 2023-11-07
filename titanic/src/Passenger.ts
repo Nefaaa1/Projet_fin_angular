@@ -13,6 +13,15 @@ export interface Passenger {
     Embarked: string
 }
 
-export interface Survived{
+export interface Survived {
     Survived: string,
+}
+
+export interface User {
+    id: number,
+    login: string,
+    password: string,
+    name: string,
+    email: string,
+    role: string,
 }
